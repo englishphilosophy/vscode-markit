@@ -1,0 +1,172 @@
+{
+  "name": "Markit",
+  "scopeName": "text.markit",
+  "patterns": [
+    { "include": "#frontmatter" },
+    { "include": "#block-id" },
+    { "include": "#headings" },
+    { "include": "#quotations" },
+    { "include": "#formatting" },
+    { "include": "#ligatures-dashes" },
+    { "include": "#edits" },
+    { "include": "#links-footnotes" },
+    { "include": "#special-chars" },
+    { "include": "#escape" }
+  ],
+  "repository": {
+    "frontmatter": {
+      "begin": "^---$",
+      "end": "^---$",
+      "name": "meta.frontmatter.markit",
+      "contentName": "source.yaml",
+      "patterns": [
+        {
+          "include": "source.yaml"
+        }
+      ]
+    },
+    "block-id": {
+      "match": "^\\{(title|#n?\\d+)((?:,[^=,}]+=[^,}]+)*)\\}",
+      "name": "markup.bold.markit",
+      "captures": {
+        "1": { "name": "entity.name.tag.markit" },
+        "2": { "name": "meta.attribute.markit" }
+      }
+    },
+    "headings": {
+      "match": "£([1-6])\\s+(.*?)\\s+£\\1",
+      "name": "markup.heading.markit"
+    },
+    "quotations": {
+      "patterns": [
+        {
+          "begin": "\"\"",
+          "end": "\"\"",
+          "name": "string.quoted.block.markit",
+          "patterns": [{ "include": "$self" }]
+        },
+        {
+          "begin": "\"",
+          "end": "\"",
+          "name": "string.quoted.inline.markit",
+          "patterns": [{ "include": "$self" }]
+        }
+      ]
+    },
+    "formatting": {
+      "patterns": [
+        {
+          "begin": "\\*",
+          "end": "\\*",
+          "name": "markup.bold.markit",
+          "patterns": [{ "include": "$self" }]
+        },
+        {
+          "begin": "_",
+          "end": "_",
+          "name": "markup.italic.markit",
+          "patterns": [{ "include": "$self" }]
+        },
+        {
+          "begin": "\\$\\$",
+          "end": "\\$\\$",
+          "name": "markup.italic.greek.markit",
+          "patterns": [{ "include": "$self" }]
+        },
+        {
+          "begin": "\\$",
+          "end": "\\$",
+          "name": "markup.italic.foreign.markit",
+          "patterns": [{ "include": "$self" }]
+        },
+        {
+          "begin": "#",
+          "end": "#",
+          "name": "comment.line.markit",
+          "patterns": [{ "include": "$self" }]
+        }
+      ]
+    },
+    "ligatures-dashes": {
+      "patterns": [
+        {
+          "match": "\\{--\\}",
+          "name": "constant.character.emdash.markit"
+        },
+        {
+          "match": "\\{-\\}",
+          "name": "constant.character.endash.markit"
+        },
+        {
+          "match": "\\{(ae|AE|oe|OE)\\}",
+          "name": "constant.character.ligature.markit"
+        }
+      ]
+    },
+    "edits": {
+      "patterns": [
+        {
+          "match": "\\+\\+(.+?)\\+\\+",
+          "captures": {
+            "0": { "name": "markup.inserted.markit" }
+          }
+        },
+        {
+          "match": "--(.+?)--",
+          "captures": {
+            "0": { "name": "markup.deleted.markit" }
+          }
+        }
+      ]
+    },
+    "links-footnotes": {
+      "patterns": [
+        {
+          "match": "\\[n\\d+\\]",
+          "name": "constant.character.footnote.markit"
+        },
+        {
+          "match": "\\[([^\\]]+)\\]\\(([^)]+)\\)",
+          "captures": {
+            "1": { "name": "string.other.link.title.markit" },
+            "2": { "name": "markup.underline.link.markit" }
+          }
+        },
+        {
+          "begin": "\\[",
+          "end": "\\]",
+          "name": "constant.numeric.citation.markit",
+          "patterns": [{ "include": "#formatting" }]
+        }
+      ]
+    },
+    "special-chars": {
+      "patterns": [
+        {
+          "match": "~~",
+          "name": "constant.language.emspace.markit"
+        },
+        {
+          "match": "~",
+          "name": "constant.language.nbsp.markit"
+        },
+        {
+          "match": "//",
+          "name": "constant.language.linebreak.markit"
+        },
+        {
+          "match": "\\|",
+          "name": "constant.language.pagebreak.markit"
+        },
+        {
+          "match": "\\\\S",
+          "name": "constant.language.section.markit"
+        }
+      ]
+    },
+    "escape": {
+      "match": "\\\\.",
+      "name": "constant.character.escape.markit"
+    }
+  }
+}

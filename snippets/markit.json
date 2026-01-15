@@ -1,0 +1,30 @@
+{
+  "Add metadata": {
+    "prefix": "meta",
+    "body": [
+      "---",
+      "id: ${1:id}",
+      "title: ${2:title}",
+      "breadcrumb: ${3:breadcrumb}",
+      "published: [${4:1700}]",
+      "copytext: [${5:1700}]",
+      "---\n"
+    ],
+    "description": "Add metadata to the document"
+  },
+  "Add title ID": {
+    "prefix": "title",
+    "body": ["{title}\n"],
+    "description": "Add a title ID to the current block"
+  },
+  "Add paragraph ID": {
+    "prefix": "p",
+    "body": ["{#${1:1}} "],
+    "description": "Add a paragraph ID to the current block"
+  },
+  "Add note ID": {
+    "prefix": "n",
+    "body": ["{#n${1:1}} "],
+    "description": "Add a note ID to the current block"
+  }
+}

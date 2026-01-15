@@ -1,0 +1,90 @@
+{
+  "name": "language-markit",
+  "displayName": "Markit",
+  "description": "Language support for Markit (.mit) files",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "type": "module",
+  "main": "./extension.js",
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "markit",
+        "aliases": [
+          "Markit",
+          "markit"
+        ],
+        "extensions": [
+          ".mit"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "markit",
+        "scopeName": "text.markit",
+        "path": "./syntaxes/markit.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "markit",
+        "path": "./snippets/markit.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "markit.addDefaultBlockIds",
+        "title": "Add Default Block IDs",
+        "category": "Markit"
+      },
+      {
+        "command": "markit.insertNextParagraphId",
+        "title": "Insert Next Paragraph ID",
+        "category": "Markit"
+      },
+      {
+        "command": "markit.insertNextNoteId",
+        "title": "Insert Next Note ID",
+        "category": "Markit"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "markit.addBlockIds",
+          "when": "editorLangId == markit"
+        },
+        {
+          "command": "markit.insertNextParagraphId",
+          "when": "editorLangId == markit"
+        },
+        {
+          "command": "markit.insertNextNoteId",
+          "when": "editorLangId == markit"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "markit.insertNextParagraphId",
+        "key": "ctrl+shift+i",
+        "mac": "cmd+shift+i",
+        "when": "editorTextFocus && editorLangId == markit"
+      },
+      {
+        "command": "markit.insertNextNoteId",
+        "key": "ctrl+shift+n",
+        "mac": "cmd+shift+n",
+        "when": "editorTextFocus && editorLangId == markit"
+      }
+    ]
+  }
+}
