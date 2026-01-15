@@ -39,6 +39,8 @@ const addDefaultBlockIds = () => {
   // Build the new content
   const edits = [];
   let currentIndex = yamlEndIndex;
+  let nextNumericId = 1; // Track the next numeric ID to use
+  let isFootnoteMode = false; // Track whether we're generating footnote IDs
 
   blocks.forEach((block, index) => {
     // Skip empty blocks
@@ -52,9 +54,24 @@ const addDefaultBlockIds = () => {
       block.trim()
     );
 
-    if (!hasId) {
+    if (hasId) {
+      // Check if the existing ID is a numeric paragraph or note ID
+      const numericIdMatch = block.trim().match(/^\{#(n?)(\d+)(\}|,)/);
+      if (numericIdMatch) {
+        const isFootnote = numericIdMatch[1] === 'n';
+        const existingId = parseInt(numericIdMatch[2], 10);
+        
+        // If we encounter a footnote ID, switch to footnote mode
+        if (isFootnote) {
+          isFootnoteMode = true;
+        }
+        
+        // Update nextNumericId to continue from this number
+        nextNumericId = existingId + 1;
+      }
+    } else {
       // Add ID to this block
-      const blockId = index === 0 ? "{title}" : `{#${index}}`;
+      const blockId = index === 0 ? "{title}" : `{#${isFootnoteMode ? 'n' : ''}${nextNumericId}}`;
       const blockStart = currentIndex;
 
       // Create edit to add ID at the start of the block
@@ -64,6 +81,11 @@ const addDefaultBlockIds = () => {
           blockId + (index === 0 ? "\n" : " ")
         )
       );
+      
+      // Increment for next block
+      if (index !== 0) {
+        nextNumericId++;
+      }
     }
 
     // Move to next block (account for block length + separator)
