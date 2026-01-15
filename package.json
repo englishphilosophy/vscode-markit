@@ -2,7 +2,7 @@
   "name": "language-markit",
   "displayName": "Markit",
   "description": "Language support for Markit (.mit) files",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "local",
   "engines": {
     "vscode": "^1.80.0"
@@ -59,7 +59,7 @@
     "menus": {
       "commandPalette": [
         {
-          "command": "markit.addBlockIds",
+          "command": "markit.addDefaultBlockIds",
           "when": "editorLangId == markit"
         },
         {
