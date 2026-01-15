@@ -48,7 +48,9 @@ const addDefaultBlockIds = () => {
     }
 
     // Check if block already has an ID
-    const hasId = /^\{(title|#\d+|#n\d+)\}/.test(block.trim());
+    const hasId = /^\{(title|#n?[a-z0-9.]+)(,[^=,}]+=[^,}]+)*\}/.test(
+      block.trim()
+    );
 
     if (!hasId) {
       // Add ID to this block
