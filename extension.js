@@ -56,7 +56,6 @@ const addDefaultBlockIds = () => {
       // Add ID to this block
       const blockId = index === 0 ? "{title}" : `{#${index}}`;
       const blockStart = currentIndex;
-      const blockEnd = currentIndex + block.length;
 
       // Create edit to add ID at the start of the block
       edits.push(
