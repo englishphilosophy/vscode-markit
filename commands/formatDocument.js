@@ -13,7 +13,7 @@ export default (document) => {
   const blocks = textToProcess.replace(/\n{3,}/g, "\n\n").split(/\n\n/);
 
   // Format each block and reattach YAML frontmatter
-  const formattedText = yamlFrontmatter + blocks.map(processedBlock).join("\n\n");
+  const formattedText = yamlFrontmatter + blocks.map(processedBlock).join("\n\n") + "\n";
 
   // Create a TextEdit replacing the entire document content
   const fullRange = new vscode.Range(
