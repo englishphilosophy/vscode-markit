@@ -54,6 +54,11 @@
         "command": "markit.insertNextNoteId",
         "title": "Insert Next Note ID",
         "category": "Markit"
+      },
+      {
+        "command": "markit.getRegexForBlockStarts",
+        "title": "Get Regex for Block Starts",
+        "category": "Markit"
       }
     ],
     "menus": {
@@ -68,6 +73,10 @@
         },
         {
           "command": "markit.insertNextNoteId",
+          "when": "editorLangId == markit"
+        },
+        {
+          "command": "markit.getRegexForBlockStarts",
           "when": "editorLangId == markit"
         }
       ]
