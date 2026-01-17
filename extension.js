@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import formatDocument from "./commands/formatDocument.js";
 import addDefaultBlockIds from "./commands/addDefaultBlockIds.js";
+import getRegexForBlockStarts from "./commands/getRegexForBlockStarts.js";
 import {
   insertNextParagraphId,
   insertNextFootnoteId,
@@ -20,6 +21,10 @@ export const activate = (context) => {
     vscode.commands.registerCommand(
       "markit.insertNextNoteId",
       insertNextFootnoteId
+    ),
+    vscode.commands.registerCommand(
+      "markit.getRegexForBlockStarts",
+      getRegexForBlockStarts
     )
   );
 
