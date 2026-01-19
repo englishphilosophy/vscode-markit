@@ -14,7 +14,9 @@
   ],
   "scripts": {
     "test": "vitest",
-    "test:coverage": "vitest --coverage"
+    "test:coverage": "vitest --coverage",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "contributes": {
     "languages": [
@@ -102,6 +104,7 @@
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^2.1.9",
+    "prettier": "^3.8.0",
     "vitest": "^2.1.9"
   }
 }

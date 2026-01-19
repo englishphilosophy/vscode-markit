@@ -11,13 +11,11 @@ export const activate = (context) => {
       "markit.addDefaultBlockIds",
       addDefaultBlockIds,
     ),
-    vscode.commands.registerCommand(
-      "markit.insertNextParagraphId",
-      () => insertNextBlockId("paragraph"),
+    vscode.commands.registerCommand("markit.insertNextParagraphId", () =>
+      insertNextBlockId("paragraph"),
     ),
-    vscode.commands.registerCommand(
-      "markit.insertNextNoteId",
-      () => insertNextBlockId("footnote"),
+    vscode.commands.registerCommand("markit.insertNextNoteId", () =>
+      insertNextBlockId("footnote"),
     ),
     vscode.commands.registerCommand(
       "markit.getRegexForBlockStarts",
