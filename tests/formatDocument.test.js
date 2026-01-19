@@ -152,7 +152,9 @@ describe("formatDocument", () => {
         '{#1} This paragraph has an\n    ""unmatched opening quote that is never closed properly.',
       );
       // Should still format the next paragraph normally
-      expect(result).toContain("{#2} This is a normal paragraph without quotes.");
+      expect(result).toContain(
+        "{#2} This is a normal paragraph without quotes.",
+      );
     });
   });
 

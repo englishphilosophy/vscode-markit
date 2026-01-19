@@ -99,9 +99,10 @@ describe("extension", () => {
       activate(context);
 
       // Find the insertNextParagraphId command registration
-      const insertParagraphCall = vscode.commands.registerCommand.mock.calls.find(
-        (call) => call[0] === "markit.insertNextParagraphId",
-      );
+      const insertParagraphCall =
+        vscode.commands.registerCommand.mock.calls.find(
+          (call) => call[0] === "markit.insertNextParagraphId",
+        );
 
       expect(insertParagraphCall).toBeDefined();
 
