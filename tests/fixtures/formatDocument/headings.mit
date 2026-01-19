@@ -1,0 +1,11 @@
+---
+id: test-headings
+---
+{title}
+Document with Headings
+
+{#1} This has £1  Level One  £1  and £2   Level Two   £2  headings with extra spaces.
+
+{#2} More headings: £3 Level Three £3 and £4    Level Four    £4 and £5 Five £5 formatting.
+
+{#3} Final one with £6   Level Six   £6 heading.

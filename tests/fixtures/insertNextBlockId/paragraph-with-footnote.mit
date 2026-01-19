@@ -1,0 +1,11 @@
+---
+id: test
+---
+{title}
+Test
+
+{#1} Paragraph.
+
+{#n1} First footnote.
+
+{#n2} Second footnote.

@@ -1,0 +1,13 @@
+---
+id: test-missing-ids
+---
+{title}
+Document with Missing IDs
+
+This is a paragraph without an ID.
+
+This is another paragraph without an ID.
+
+This is a third paragraph.
+
+This is a footnote without an ID.
