@@ -86,7 +86,7 @@ const processQuotations = (processed, quotePositions) => {
       const remaining = processed.substring(quoteStart).trim();
       if (remaining) {
         if (result) result += "\n";
-        result += handleLineBreaks(remaining);
+        result += `    ${handleLineBreaks(remaining)}`;
       }
       pos = processed.length;
       break;

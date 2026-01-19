@@ -1,7 +1,6 @@
 ---
 id: test-missing-ids
 ---
-{title}
 Document with Missing IDs
 
 This is a paragraph without an ID.

@@ -138,6 +138,22 @@ describe("formatDocument", () => {
       expect(result).toContain("*bold*");
       expect(result).toContain("$foreign$");
     });
+
+    it("should handle unmatched opening quote", () => {
+      const content = loadFixture("formatDocument/unmatched-quote.mit");
+      const document = createMockDocument(content);
+      const edits = formatDocument(document);
+
+      expect(edits).toHaveLength(1);
+      const result = edits[0].newText;
+
+      // Should indent unmatched opening quote with 4 spaces
+      expect(result).toContain(
+        '{#1} This paragraph has an\n    ""unmatched opening quote that is never closed properly.',
+      );
+      // Should still format the next paragraph normally
+      expect(result).toContain("{#2} This is a normal paragraph without quotes.");
+    });
   });
 
   describe("line break formatting", () => {
@@ -196,6 +212,24 @@ describe("formatDocument", () => {
       expect(edits[0].newText).toMatch(
         /^---\nid: test-basic\ntitle: A Basic Test Document\nauthor: Test Author\n---\n/,
       );
+    });
+
+    it("should handle documents without YAML metadata", () => {
+      const content = loadFixture("formatDocument/no-yaml.mit");
+      const document = createMockDocument(content);
+      const edits = formatDocument(document);
+
+      expect(edits).toHaveLength(1);
+      const result = edits[0].newText;
+
+      // Should not have YAML frontmatter
+      expect(result).not.toContain("---");
+      // Should start with title
+      expect(result).toMatch(/^{title}\n/);
+      // Should format blocks correctly
+      expect(result).toContain("{#1} This is a paragraph");
+      expect(result).toContain("{#2} Another paragraph");
+      expect(result).toContain("{#n1} A footnote");
     });
 
     it("should remove trailing whitespace from lines", () => {

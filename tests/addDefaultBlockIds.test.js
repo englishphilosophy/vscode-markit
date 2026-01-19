@@ -19,10 +19,10 @@ describe("addDefaultBlockIds", () => {
       vscode.window.activeTextEditor.document.uri,
     );
 
-    // Should add IDs to 3 paragraphs + 1 footnote = 4 edits
-    expect(edits).toHaveLength(4);
+    // Should add IDs to 1 title + 3 paragraphs + 1 footnote = 5 edits
+    expect(edits).toHaveLength(5);
     expect(vscode.window.showInformationMessage).toHaveBeenCalledWith(
-      "Added IDs to 4 block(s)",
+      "Added IDs to 5 block(s)",
     );
   });
 
@@ -52,6 +52,20 @@ describe("addDefaultBlockIds", () => {
     expect(edits).toHaveLength(2);
   });
 
+  it("should add title ID to first block if missing", async () => {
+    setActiveEditor("addDefaultBlockIds/missing-ids.mit");
+
+    await addDefaultBlockIds();
+
+    const workspaceEdit = vscode.workspace.applyEdit.mock.calls[0][0];
+    const edits = workspaceEdit.get(
+      vscode.window.activeTextEditor.document.uri,
+    );
+
+    // First edit should be the title ID
+    expect(edits[0].newText).toBe("{title}\n");
+  });
+
   it("should insert sequential numeric IDs for paragraphs", async () => {
     setActiveEditor("addDefaultBlockIds/missing-ids.mit");
 
@@ -62,10 +76,11 @@ describe("addDefaultBlockIds", () => {
       vscode.window.activeTextEditor.document.uri,
     );
 
-    // First 3 edits should be paragraphs with sequential IDs
-    expect(edits[0].newText).toBe("{#1} ");
-    expect(edits[1].newText).toBe("{#2} ");
-    expect(edits[2].newText).toBe("{#3} ");
+    // Ignore first edit (title ID)
+    // Next 3 edits should be paragraphs with sequential IDs
+    expect(edits[1].newText).toBe("{#1} ");
+    expect(edits[2].newText).toBe("{#2} ");
+    expect(edits[3].newText).toBe("{#3} ");
   });
 
   it("should use footnote notation (n) for footnotes after a footnote block appears", async () => {
