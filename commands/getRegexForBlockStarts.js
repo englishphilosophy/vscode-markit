@@ -1,7 +1,5 @@
-import vscode from "vscode";
+import { env, window } from "vscode";
 import parseDocument from "./parseDocument.js";
-
-const { window } = vscode;
 
 // Get regex pattern for the union of all block starts (first 25 characters after ID)
 export default async () => {
@@ -10,7 +8,7 @@ export default async () => {
 
   const regexPattern = getRegexForBlockStarts(editor.document.getText());
   if (regexPattern) {
-    await vscode.env.clipboard.writeText(regexPattern);
+    await env.clipboard.writeText(regexPattern);
     window.showInformationMessage(
       "Regex pattern for block starts copied to clipboard",
     );
