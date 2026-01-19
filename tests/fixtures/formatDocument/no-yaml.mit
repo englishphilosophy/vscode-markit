@@ -1,0 +1,8 @@
+{title}
+Document Without Metadata
+
+{#1} This is a paragraph in a document without YAML metadata.
+
+{#2} Another paragraph with _italic_ and *bold* text.
+
+{#n1} A footnote without YAML.

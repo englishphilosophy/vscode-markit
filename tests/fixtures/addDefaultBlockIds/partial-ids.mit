@@ -1,0 +1,15 @@
+---
+id: test-partial-ids
+---
+{title}
+Document with Some IDs
+
+{#1} First paragraph has an ID.
+
+Second paragraph is missing an ID.
+
+{#3} Third paragraph has an ID.
+
+{#n1} First footnote has an ID.
+
+Second footnote is missing an ID.

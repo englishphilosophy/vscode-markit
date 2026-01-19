@@ -1,0 +1,11 @@
+---
+id: test-quotes
+---
+{title}
+Document with Block Quotes
+
+{#1} This paragraph has a ""block quotation with // line breaks // in the middle"" that needs proper formatting.
+
+{#2} Multiple quotes: ""First quote"" and then ""Second quote // with breaks"" in one paragraph.
+
+{#3} Nested markup in quotes: ""This has _italic_ and *bold* and $foreign$ text"" inside.

@@ -1,0 +1,9 @@
+---
+id: test
+---
+{title}
+Test
+
+{#1} Text with _italic_ and *bold* markup.
+
+{#2} Text with £1 Heading £1 inside.

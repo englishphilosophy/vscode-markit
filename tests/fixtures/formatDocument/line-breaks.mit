@@ -1,0 +1,11 @@
+---
+id: test-line-breaks
+---
+{title}
+Document with Line Breaks
+
+{#1} This paragraph has // multiple // line breaks // throughout the text.
+
+{#2} Single line break // here.
+
+{#3} Line breaks with other markup: _italic // with break_ and *bold // with break* text.

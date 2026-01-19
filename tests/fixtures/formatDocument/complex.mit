@@ -1,0 +1,13 @@
+---
+id: test-complex
+---
+{title}
+Complex Document with Everything
+
+{#1} This paragraph has £1 Heading £1 and ""block quote // with breaks"" and _italic_ and // line breaks.
+
+{#2} Multiple features: £2   Spaced Heading  £2  with extra   whitespace	and	tabs and ""quote"" text.
+
+{#3} Block quote paragraph: ""This is a long block quotation // that spans multiple lines // and has various formatting // with _italic_ and *bold*"" embedded.
+
+{#n1} A footnote with £3 Heading £3 and // breaks.

@@ -1,0 +1,16 @@
+---
+id: test-unformatted
+---
+{title}    Unformatted    Title   
+
+
+{#1}
+This   has  
+  multiple   spaces    and   	tabs	in   it.
+
+
+{#2} This has  £1   Bad  Heading   £1  formatting.
+
+{#3} This paragraph has ""block quotes with    extra   spaces   and  line  breaks"" in it.
+
+{#4} This has // line breaks // that need // formatting.

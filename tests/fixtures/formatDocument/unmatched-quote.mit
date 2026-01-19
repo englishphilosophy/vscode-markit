@@ -1,0 +1,9 @@
+---
+id: test-unmatched-quote
+---
+{title}
+Document with Unmatched Quote
+
+{#1} This paragraph has an ""unmatched opening quote that is never closed properly.
+
+{#2} This is a normal paragraph without quotes.

@@ -1,0 +1,13 @@
+---
+id: test-basic
+title: A Basic Test Document
+author: Test Author
+---
+{title}
+A Basic Test Document
+
+{#1} This is the first paragraph. It contains some basic text.
+
+{#2} This is the second paragraph with some _italic_ and *bold* text.
+
+{#n1} This is a footnote.

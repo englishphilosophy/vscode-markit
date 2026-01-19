@@ -1,0 +1,9 @@
+---
+id: test
+---
+{title}
+Test
+
+{#1} Paragraph text here.
+
+{#n1} Footnote text here.

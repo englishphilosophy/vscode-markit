@@ -2,7 +2,7 @@
   "name": "language-markit",
   "displayName": "Markit",
   "description": "Language support for Markit (.mit) files",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publisher": "local",
   "engines": {
     "vscode": "^1.80.0"
@@ -12,6 +12,12 @@
   "categories": [
     "Programming Languages"
   ],
+  "scripts": {
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
   "contributes": {
     "languages": [
       {
@@ -54,6 +60,11 @@
         "command": "markit.insertNextNoteId",
         "title": "Insert Next Note ID",
         "category": "Markit"
+      },
+      {
+        "command": "markit.getRegexForBlockStarts",
+        "title": "Get Regex for Block Starts",
+        "category": "Markit"
       }
     ],
     "menus": {
@@ -68,6 +79,10 @@
         },
         {
           "command": "markit.insertNextNoteId",
+          "when": "editorLangId == markit"
+        },
+        {
+          "command": "markit.getRegexForBlockStarts",
           "when": "editorLangId == markit"
         }
       ]
@@ -86,5 +101,10 @@
         "when": "editorTextFocus && editorLangId == markit"
       }
     ]
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^2.1.9",
+    "prettier": "^3.8.0",
+    "vitest": "^2.1.9"
   }
 }
