@@ -12,6 +12,10 @@
   "categories": [
     "Programming Languages"
   ],
+  "scripts": {
+    "test": "vitest",
+    "test:coverage": "vitest --coverage"
+  },
   "contributes": {
     "languages": [
       {
@@ -95,5 +99,9 @@
         "when": "editorTextFocus && editorLangId == markit"
       }
     ]
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^2.1.9",
+    "vitest": "^2.1.9"
   }
 }
