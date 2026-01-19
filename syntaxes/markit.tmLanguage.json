@@ -89,13 +89,13 @@
     "edits": {
       "patterns": [
         {
-          "match": "\\{\\+\\+(.+?)\\+\\+\\}",
+          "match": "\\{\\+\\+([^{}]+?)\\+\\+\\}",
           "captures": {
             "0": { "name": "markup.inserted.markit" }
           }
         },
         {
-          "match": "\\{--(.+?)--\\}",
+          "match": "\\{--([^{}]+?)--\\}",
           "captures": {
             "0": { "name": "markup.deleted.markit" }
           }
