@@ -71,8 +71,8 @@ const getEditsForAddingIds = (document) => {
 };
 
 const parseBlockId = (block) => {
-  const titleIdRegex = /^\{title\}\n/;
-  const numericIdRegex = /^\{#(n?)(\d+)\}\s/;
+  const titleIdRegex = /^\{title/;
+  const numericIdRegex = /^\{#(n?)(\d+)/;
 
   if (titleIdRegex.test(block)) {
     return { hasId: true, isFootnote: false, numericId: null };

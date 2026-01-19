@@ -4,7 +4,7 @@ id: test-existing-ids
 {title}
 Document with All IDs
 
-{#1} First paragraph.
+{#1,with=metadata} First paragraph.
 
 {#2} Second paragraph.
 
@@ -12,4 +12,4 @@ Document with All IDs
 
 {#n1} First footnote.
 
-{#n2} Second footnote.
+{#n2,also=metadata} Second footnote.
