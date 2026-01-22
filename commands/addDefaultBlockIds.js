@@ -71,19 +71,25 @@ const getEditsForAddingIds = (document) => {
 };
 
 const parseBlockId = (block) => {
-  const titleIdRegex = /^\{title\}\n/;
-  const numericIdRegex = /^\{#(n?)(\d+)\}\s/;
-
-  if (titleIdRegex.test(block)) {
+  if (block.startsWith("{title")) {
     return { hasId: true, isFootnote: false, numericId: null };
   }
 
-  const numericIdMatch = block.match(numericIdRegex);
+  const numericIdMatch = block.match(/^\{#(n?)(\d+)/);
   if (numericIdMatch) {
     return {
       hasId: true,
       isFootnote: numericIdMatch[1] === "n",
       numericId: parseInt(numericIdMatch[2], 10),
+    };
+  }
+
+  const nonNumericIdMatch = block.match(/^\{#(n?)[^}]+/);
+  if (nonNumericIdMatch) {
+    return {
+      hasId: true,
+      isFootnote: nonNumericIdMatch[1] === "n",
+      numericId: null,
     };
   }
 
